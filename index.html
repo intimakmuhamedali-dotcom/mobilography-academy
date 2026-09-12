@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Мобилография академиясы</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ink: '#020617' },
+          boxShadow: { glow: '0 0 40px rgba(34,211,238,.17)' }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: #020617; }
+    .noise { background-image: radial-gradient(rgba(255,255,255,.12) .7px, transparent .7px); background-size: 4px 4px; }
+    .camera-scene { transition: filter .5s ease, background .5s ease; }
+    .scene-golden { background: linear-gradient(135deg, #2f1509 0%, #a54913 42%, #f2a534 72%, #502117 100%); filter: saturate(1.2) sepia(.16); }
+    .scene-studio { background: linear-gradient(135deg, #18233d 0%, #e7edf8 42%, #7198c6 75%, #10182c 100%); filter: contrast(1.1) saturate(.85); }
+    .scene-cyber { background: linear-gradient(135deg, #090025 0%, #161047 36%, #dd1779 63%, #00ddff 100%); filter: saturate(1.45) contrast(1.13); }
+    .scene-day { background: linear-gradient(135deg, #061d43 0%, #1978b6 45%, #f5efad 64%, #135057 100%); filter: contrast(1.38) saturate(1.25); }
+    .scene-shape { position: absolute; border-radius: 9999px; filter: blur(1px); opacity: .78; }
+    .grid-lines { background-image: linear-gradient(to right, transparent 32.8%, rgba(255,255,255,.72) 33%, transparent 33.35%, transparent 66.2%, rgba(255,255,255,.72) 66.55%, transparent 66.9%), linear-gradient(to bottom, transparent 32.8%, rgba(255,255,255,.72) 33%, transparent 33.35%, transparent 66.2%, rgba(255,255,255,.72) 66.55%, transparent 66.9%); }
+    .check-row.done { border-color: rgb(34 211 238 / .55); background: rgb(8 47 73 / .5); }
+    .check-row.done .check-icon { background: #22d3ee; color: #082f49; border-color: #22d3ee; }
+    .answer.correct { border-color: #34d399; background: rgba(6, 78, 59, .58); color: #d1fae5; }
+    .answer.wrong { border-color: #fb7185; background: rgba(136, 19, 55, .46); color: #ffe4e6; }
+    .answer.locked { pointer-events: none; }
+  </style>
+</head>
+<body class="min-h-screen text-slate-100 antialiased">
+  <div class="fixed inset-0 -z-10 overflow-hidden">
+    <div class="absolute -top-32 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-cyan-500/15 blur-3xl"></div>
+    <div class="absolute top-[40rem] -right-20 h-80 w-80 rounded-full bg-fuchsia-600/10 blur-3xl"></div>
+  </div>
+
+  <nav class="mx-auto flex max-w-6xl items-center justify-between px-5 py-5 sm:px-8">
+    <a href="#bastau" class="flex items-center gap-2 text-sm font-bold tracking-wide text-white"><span class="grid h-8 w-8 place-items-center rounded-lg bg-cyan-400 text-slate-950">M</span> MOBILOGRAPHY</a>
+    <a href="#simulator" class="rounded-full border border-slate-700 px-4 py-2 text-sm font-medium text-slate-200 transition hover:border-cyan-400 hover:text-cyan-300">Симулятор</a>
+  </nav>
+
+  <main id="bastau">
+    <section class="mx-auto grid max-w-6xl items-center gap-12 px-5 pb-20 pt-12 sm:px-8 lg:grid-cols-[1.1fr_.9fr] lg:pt-20">
+      <div>
+        <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-cyan-400/25 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-200"><span class="h-2 w-2 animate-pulse rounded-full bg-cyan-300"></span> Телефоныңыз — сіздің студияңыз</p>
+        <h1 class="max-w-3xl text-5xl font-black leading-[.96] tracking-tight text-white sm:text-7xl">Мобилография<br><span class="bg-gradient-to-r from-cyan-300 via-blue-400 to-fuchsia-400 bg-clip-text text-transparent">академиясы</span></h1>
+        <p class="mt-6 max-w-xl text-lg leading-8 text-slate-400">Кәдімгі смартфонды кәсіби камера секілді қолдануды үйреніңіз. Жарық, композиция және динамиканы тәжірибе арқылы игеріңіз.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#simulator" class="rounded-xl bg-cyan-400 px-5 py-3 font-bold text-slate-950 transition hover:bg-cyan-300">Камераны сынау →</a>
+          <a href="#quiz" class="rounded-xl border border-slate-700 px-5 py-3 font-bold text-slate-200 transition hover:border-slate-500">Экспресс-квиз</a>
+        </div>
+        <div class="mt-10 flex gap-7 text-sm text-slate-400"><div><b class="block text-2xl text-white">3</b> басты қағида</div><div><b class="block text-2xl text-white">4</b> жарық режимі</div><div><b class="block text-2xl text-white">60 FPS</b> динамика</div></div>
+      </div>
+      <div class="relative mx-auto w-full max-w-sm">
+        <div class="absolute -inset-5 rounded-[3rem] bg-cyan-400/10 blur-2xl"></div>
+        <div class="relative rotate-3 rounded-[2.5rem] border border-slate-600 bg-slate-900 p-3 shadow-2xl shadow-cyan-950/80">
+          <div class="rounded-[2rem] bg-slate-950 p-4">
+            <div class="mb-3 flex items-center justify-between text-[10px] text-slate-400"><span>9:41</span><span>● ● ●</span></div>
+            <div class="relative aspect-[3/4] overflow-hidden rounded-[1.4rem] bg-gradient-to-br from-violet-900 via-fuchsia-700 to-cyan-400">
+              <div class="absolute inset-0 noise opacity-20"></div><div class="absolute bottom-0 h-2/5 w-full bg-slate-950/55"></div>
+              <div class="absolute bottom-20 left-10 h-32 w-20 rounded-t-full bg-slate-950/80"></div><div class="absolute bottom-[11.5rem] left-[4.2rem] h-10 w-10 rounded-full bg-slate-950/80"></div>
+              <div class="absolute left-5 top-5 rounded bg-black/35 px-2 py-1 text-[10px] text-white">REC ● 4K</div>
+              <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs font-bold text-white">ЖАРЫҚТЫ ҰСТА</div>
+            </div>
+            <div class="mt-4 flex items-center justify-around text-xs text-slate-400"><span>◉</span><span class="grid h-12 w-12 place-items-center rounded-full border-4 border-white"><i class="h-8 w-8 rounded-full bg-white"></i></span><span>↔</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-y border-slate-800/80 bg-slate-900/35 py-20">
+      <div class="mx-auto max-w-6xl px-5 sm:px-8"><p class="text-sm font-bold uppercase tracking-[.2em] text-cyan-300">Негізгі ережелер</p><h2 class="mt-3 text-3xl font-black sm:text-4xl">Кадрды бірден жақсартатын үш қағида</h2>
+        <div class="mt-10 grid gap-5 md:grid-cols-3">
+          <article class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 transition hover:-translate-y-1 hover:border-amber-400/50"><span class="grid h-12 w-12 place-items-center rounded-xl bg-amber-400/10 text-2xl">☀</span><h3 class="mt-5 text-xl font-bold">Жарық пен бұрыш</h3><p class="mt-3 leading-7 text-slate-400">Адамды терезеге не алтын сағаттың жарығына қаратыңыз. Камераны сәл төменнен емес, көз деңгейінен ұстаңыз.</p></article>
+          <article class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 transition hover:-translate-y-1 hover:border-cyan-400/50"><span class="grid h-12 w-12 place-items-center rounded-xl bg-cyan-400/10 text-2xl">#</span><h3 class="mt-5 text-xl font-bold">Үштен бір ережесі</h3><p class="mt-3 leading-7 text-slate-400">Торды қосып, басты нысанды сызықтардың қиылысына қойыңыз. Кадр бірден тыныстап, назарды дұрыс бағыттайды.</p></article>
+          <article class="rounded-2xl border border-slate-800 bg-slate-950/70 p-6 transition hover:-translate-y-1 hover:border-fuchsia-400/50"><span class="grid h-12 w-12 place-items-center rounded-xl bg-fuchsia-400/10 text-2xl">↗</span><h3 class="mt-5 text-xl font-bold">Тұрақтылық пен динамика</h3><p class="mt-3 leading-7 text-slate-400">Екі қолмен ұстаңыз, шынтақты денеге тіреңіз. Қозғалыс керек болса, 60 FPS режимін қосыңыз.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="simulator" class="mx-auto max-w-6xl px-5 py-20 sm:px-8"><div class="text-center"><p class="text-sm font-bold uppercase tracking-[.2em] text-cyan-300">Тәжірибе алаңы</p><h2 class="mt-3 text-3xl font-black sm:text-4xl">Интерактивті камера симуляторы</h2><p class="mx-auto mt-3 max-w-xl text-slate-400">Жарықты өзгертіп, кадр торын қосыңыз. Әрбір режим кадрдың көңіл күйін басқа қырынан ашады.</p></div>
+      <div class="mx-auto mt-10 max-w-md rounded-[2.8rem] border-8 border-slate-800 bg-slate-900 p-3 shadow-glow"><div class="rounded-[2rem] bg-slate-950 p-4">
+        <div class="mb-3 flex items-center justify-between text-xs text-slate-400"><span>‹ Артқа</span><span class="rounded-md bg-red-500/20 px-2 py-1 text-red-300">● REC</span><span>4K · 60</span></div>
+        <div id="cameraScene" class="camera-scene scene-golden relative aspect-[3/4] overflow-hidden rounded-[1.4rem]">
+          <div class="scene-shape left-[12%] top-[12%] h-16 w-16 bg-amber-100/80 blur-sm"></div><div class="scene-shape right-[9%] top-[27%] h-28 w-28 bg-pink-300/50"></div><div class="absolute bottom-0 h-[42%] w-full bg-slate-950/65"></div><div class="absolute bottom-[17%] left-[42%] h-36 w-20 rounded-t-[4rem] bg-slate-950/85"></div><div class="absolute bottom-[48%] left-[45%] h-11 w-11 rounded-full bg-slate-950/85"></div>
+          <div id="cameraGrid" class="grid-lines pointer-events-none absolute inset-0 hidden"></div><div class="absolute left-4 top-4 rounded bg-black/30 px-2 py-1 text-xs font-semibold text-white">1×</div><div id="modeLabel" class="absolute bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/45 px-3 py-1.5 text-xs font-bold text-white">Golden Hour</div>
+        </div>
+        <div class="mt-4 flex items-center justify-between"><button id="gridToggle" class="rounded-lg border border-slate-700 px-3 py-2 text-xs font-bold text-slate-200 hover:border-cyan-400">▦ Торды қосу</button><span class="rounded-full border-4 border-white p-1"><span class="block h-10 w-10 rounded-full bg-white"></span></span><button class="rounded-lg border border-slate-700 px-3 py-2 text-xs font-bold text-slate-200">↔ Камера</button></div>
+      </div></div>
+      <div class="mx-auto mt-7 grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
+        <button data-scene="golden" data-label="Golden Hour" class="scene-button rounded-xl border border-amber-400 bg-amber-400/15 px-3 py-3 text-sm font-bold text-amber-200">Табиғи<br><span class="font-normal opacity-75">Golden Hour</span></button>
+        <button data-scene="studio" data-label="Студиялық жарық" class="scene-button rounded-xl border border-slate-700 bg-slate-900 px-3 py-3 text-sm font-bold text-slate-300">Студиялық</button>
+        <button data-scene="cyber" data-label="Түнгі / Киберпанк" class="scene-button rounded-xl border border-slate-700 bg-slate-900 px-3 py-3 text-sm font-bold text-slate-300">Түнгі/<br>Киберпанк</button>
+        <button data-scene="day" data-label="Күндізгі контраст" class="scene-button rounded-xl border border-slate-700 bg-slate-900 px-3 py-3 text-sm font-bold text-slate-300">Күндізгі<br>контраст</button>
+      </div>
+    </section>
+
+    <section class="bg-slate-900/45 py-20"><div class="mx-auto grid max-w-6xl gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:items-center"><div><p class="text-sm font-bold uppercase tracking-[.2em] text-cyan-300">Түсірілімге дайындық</p><h2 class="mt-3 text-3xl font-black sm:text-4xl">Кадр алдындағы<br>30 секунд</h2><p class="mt-4 max-w-md leading-7 text-slate-400">Әр түсірілімнің алдында осы тізімді басып шығыңыз. Бұл ұсақ әдеттер сапаны айтарлықтай көтереді.</p><div class="mt-7 h-3 overflow-hidden rounded-full bg-slate-800"><div id="progressBar" class="h-full w-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300"></div></div><p id="progressText" class="mt-2 text-sm text-cyan-300">0 / 5 орындалды</p></div>
+      <div id="checklist" class="space-y-3">
+        <button class="check-row flex w-full items-center gap-4 rounded-xl border border-slate-800 bg-slate-950/70 p-4 text-left transition"><span class="check-icon grid h-7 w-7 shrink-0 place-items-center rounded-full border border-slate-600 text-xs">✓</span><span><b class="block">Линзаны сүрту</b><small class="text-slate-400">Майлы іздер жарықты бұзады.</small></span></button>
+        <button class="check-row flex w-full items-center gap-4 rounded-xl border border-slate-800 bg-slate-950/70 p-4 text-left transition"><span class="check-icon grid h-7 w-7 shrink-0 place-items-center rounded-full border border-slate-600 text-xs">✓</span><span><b class="block">AE/AF құлпын бекіту</b><small class="text-slate-400">Экспозиция мен фокус секірмейді.</small></span></button>
+        <button class="check-row flex w-full items-center gap-4 rounded-xl border border-slate-800 bg-slate-950/70 p-4 text-left transition"><span class="check-icon grid h-7 w-7 shrink-0 place-items-center rounded-full border border-slate-600 text-xs">✓</span><span><b class="block">60 FPS қосу</b><small class="text-slate-400">Қозғалысты баяулатуға мүмкіндік береді.</small></span></button>
+        <button class="check-row flex w-full items-center gap-4 rounded-xl border border-slate-800 bg-slate-950/70 p-4 text-left transition"><span class="check-icon grid h-7 w-7 shrink-0 place-items-center rounded-full border border-slate-600 text-xs">✓</span><span><b class="block">Торды қосу</b><small class="text-slate-400">Композицияны жылдам құрасыз.</small></span></button>
+        <button class="check-row flex w-full items-center gap-4 rounded-xl border border-slate-800 bg-slate-950/70 p-4 text-left transition"><span class="check-icon grid h-7 w-7 shrink-0 place-items-center rounded-full border border-slate-600 text-xs">✓</span><span><b class="block">Телефонды тұрақтандыру</b><small class="text-slate-400">Екі қол немесе штатив пайдаланыңыз.</small></span></button>
+      </div></div></section>
+
+    <section class="mx-auto max-w-6xl px-5 py-20 sm:px-8"><p class="text-sm font-bold uppercase tracking-[.2em] text-cyan-300">Құралдар қорабы</p><h2 class="mt-3 text-3xl font-black sm:text-4xl">Ұсынылатын топ-қосымшалар</h2><div class="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-5"><span class="text-3xl">✂</span><h3 class="mt-4 text-lg font-bold">CapCut</h3><p class="mt-2 text-sm leading-6 text-slate-400">Жылдам монтаж, титр, ырғақ пен тренд эффектілері.</p></article>
+      <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-5"><span class="text-3xl">◉</span><h3 class="mt-4 text-lg font-bold">Blackmagic Cam</h3><p class="mt-2 text-sm leading-6 text-slate-400">Қолмен баптау және кәсіби бейне параметрлері.</p></article>
+      <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-5"><span class="text-3xl">◐</span><h3 class="mt-4 text-lg font-bold">Lightroom</h3><p class="mt-2 text-sm leading-6 text-slate-400">Түсті түзету, жарық және жеке пресеттер.</p></article>
+      <article class="rounded-2xl border border-slate-800 bg-slate-900/50 p-5"><span class="text-3xl">▶</span><h3 class="mt-4 text-lg font-bold">VN</h3><p class="mt-2 text-sm leading-6 text-slate-400">Таза интерфейс және көпқабатты монтаж.</p></article>
+    </div></section>
+
+    <section id="quiz" class="border-t border-slate-800 bg-gradient-to-b from-slate-900 to-slate-950 py-20"><div class="mx-auto max-w-3xl px-5 sm:px-8"><div class="text-center"><p class="text-sm font-bold uppercase tracking-[.2em] text-cyan-300">Біліміңізді тексеріңіз</p><h2 class="mt-3 text-3xl font-black sm:text-4xl">Экспресс-квиз</h2><p class="mt-3 text-slate-400">Жауапты таңдаңыз — нәтиже бірден көрінеді.</p></div><div id="quizList" class="mt-10 space-y-6">
+      <article class="quiz-card rounded-2xl border border-slate-800 bg-slate-950/70 p-6" data-correct="b"><p class="font-bold">1. Портретті композицияда қай жерге қойған дұрыс?</p><div class="mt-4 grid gap-2"><button data-answer="a" class="answer rounded-lg border border-slate-700 p-3 text-left text-sm text-slate-300">A. Кадрдың дәл ортасына</button><button data-answer="b" class="answer rounded-lg border border-slate-700 p-3 text-left text-sm text-slate-300">B. Үштен бір торының қиылыс нүктесіне</button><button data-answer="c" class="answer rounded-lg border border-slate-700 p-3 text-left text-sm text-slate-300">C. Тек төменгі бұрышқа</button></div><p class="explanation mt-4 hidden text-sm leading-6"></p></article>
+      <article class="quiz-card rounded-2xl border border-slate-800 bg-slate-950/70 p-6" data-correct="c"><p class="font-bold">2. Қозғалысты кейін баяулату үшін не пайдалы?</p><div class="mt-4 grid gap-2"><button data-answer="a" class="answer rounded-lg border border-slate-700 p-3 text-left text-sm text-slate-300">A. Тек цифрлық зумды қосу</button><button data-answer="b" class="answer rounded-lg border border-slate-700 p-3 text-left text-sm text-slate-300">B. Жарықты өшіру</button><button data-answer="c" class="answer rounded-lg border border-slate-700 p-3 text-left text-sm text-slate-300">C. 60 FPS режимінде түсіру</button></div><p class="explanation mt-4 hidden text-sm leading-6"></p></article>
+      <article class="quiz-card rounded-2xl border border-slate-800 bg-slate-950/70 p-6" data-correct="a"><p class="font-bold">3. AE/AF lock не үшін қажет?</p><div class="mt-4 grid gap-2"><button data-answer="a" class="answer rounded-lg border border-slate-700 p-3 text-left text-sm text-slate-300">A. Фокус пен экспозицияның ауысып кетпеуі үшін</button><button data-answer="b" class="answer rounded-lg border border-slate-700 p-3 text-left text-sm text-slate-300">B. Телефон дыбысын күшейту үшін</button><button data-answer="c" class="answer rounded-lg border border-slate-700 p-3 text-left text-sm text-slate-300">C. Бейнені автоматты жариялау үшін</button></div><p class="explanation mt-4 hidden text-sm leading-6"></p></article>
+    </div><div id="quizScore" class="mt-7 hidden rounded-xl border border-cyan-400/30 bg-cyan-400/10 p-4 text-center font-bold text-cyan-100"></div></div></section>
+  </main>
+  <footer class="border-t border-slate-800 py-8 text-center text-sm text-slate-500">Мобилография академиясы · Әр кадрда оқиға бар.</footer>
+  <script>
+    const scene = document.getElementById('cameraScene');
+    const label = document.getElementById('modeLabel');
+    document.querySelectorAll('.scene-button').forEach(button => button.addEventListener('click', () => {
+      scene.className = 'camera-scene scene-' + button.dataset.scene + ' relative aspect-[3/4] overflow-hidden rounded-[1.4rem]';
+      scene.innerHTML = '<div class="scene-shape left-[12%] top-[12%] h-16 w-16 bg-amber-100/80 blur-sm"></div><div class="scene-shape right-[9%] top-[27%] h-28 w-28 bg-pink-300/50"></div><div class="absolute bottom-0 h-[42%] w-full bg-slate-950/65"></div><div class="absolute bottom-[17%] left-[42%] h-36 w-20 rounded-t-[4rem] bg-slate-950/85"></div><div class="absolute bottom-[48%] left-[45%] h-11 w-11 rounded-full bg-slate-950/85"></div><div id="cameraGrid" class="grid-lines pointer-events-none absolute inset-0 ' + (document.getElementById('gridToggle').dataset.on === 'true' ? '' : 'hidden') + '"></div><div class="absolute left-4 top-4 rounded bg-black/30 px-2 py-1 text-xs font-semibold text-white">1×</div><div id="modeLabel" class="absolute bottom-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-black/45 px-3 py-1.5 text-xs font-bold text-white">' + button.dataset.label + '</div>';
+      document.querySelectorAll('.scene-button').forEach(item => item.classList.remove('border-cyan-400','bg-cyan-400/15','text-cyan-200'));
+      button.classList.add('border-cyan-400','bg-cyan-400/15','text-cyan-200');
+    }));
+    document.getElementById('gridToggle').addEventListener('click', function () { const grid = document.getElementById('cameraGrid'); const visible = grid.classList.toggle('hidden'); this.dataset.on = String(!visible); this.textContent = visible ? '▦ Торды қосу' : '▦ Торды өшіру'; });
+    const rows = document.querySelectorAll('.check-row');
+    rows.forEach(row => row.addEventListener('click', () => { row.classList.toggle('done'); const done = document.querySelectorAll('.check-row.done').length; document.getElementById('progressBar').style.width = (done / rows.length * 100) + '%'; document.getElementById('progressText').textContent = done + ' / ' + rows.length + ' орындалды'; }));
+    const notes = { b: 'Дұрыс! Қиылыс нүктесі көзге табиғи әрі тартымды көрінеді.', c: 'Дұрыс! 60 FPS кадр санын көбейтіп, slow motion жасауға жол ашады.', a: 'Дұрыс! Құлыптау жарық пен фокустың кадр ішінде өзгеріп кетуін тоқтатады.' };
+    let answered = 0, score = 0;
+    document.querySelectorAll('.quiz-card').forEach(card => card.querySelectorAll('.answer').forEach(answer => answer.addEventListener('click', () => { if (card.dataset.done) return; card.dataset.done = 'yes'; const correct = card.dataset.correct; const choice = answer.dataset.answer; card.querySelectorAll('.answer').forEach(item => { item.classList.add('locked'); if (item.dataset.answer === correct) item.classList.add('correct'); }); if (choice !== correct) answer.classList.add('wrong'); else score++; const text = card.querySelector('.explanation'); text.textContent = notes[correct]; text.className = 'explanation mt-4 text-sm leading-6 ' + (choice === correct ? 'text-emerald-300' : 'text-rose-200'); answered++; if (answered === 3) { const result = document.getElementById('quizScore'); result.textContent = 'Нәтиже: ' + score + ' / 3. ' + (score === 3 ? 'Тамаша! Сіз кадрға дайынсыз.' : 'Жақсы бастама! Ережелерді тағы бір қарап шығыңыз.'); result.classList.remove('hidden'); } }))); 
+  </script>
+</body>
+</html>
